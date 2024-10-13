@@ -1,0 +1,312 @@
+* {
+  padding: 0;
+  margin: 0;
+  font-family: roboto;
+}
+
+:root {
+  --white: #F6F6F6;
+  --black: #242424;
+  --d-black: #1e1f20;
+}
+
+div {
+  -webkit-tap-highlight-color: rgba(30, 31, 32, .2);
+}
+
+main {
+  height: 100vh;
+  background-color: var(--black);
+  display: flex;
+  flex-direction: column; /* Allow for vertical stacking */
+}
+
+.main-section {
+  width: 768px;
+  margin: auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1; /* Allow this section to grow within the main */
+  overflow: auto;
+}
+.main-section::-webkit-scrollbar{
+  display: none;
+}
+
+.main-section header {
+  display: flex;
+  align-items: center;
+}
+
+@keyframes gradient-animation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.main-section header h1 {
+  font-family: sansita;
+  font-size: 3em;
+  background: linear-gradient(270deg, #30d5c8, #5856d6, #30d5c8);
+  background-size: 400% 400%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  animation: gradient-animation 5s ease infinite;
+  line-height: 1;
+}
+
+.main-section header img {
+  margin-left: auto;
+  height: 50px;
+}
+
+.main-section .item-grid {
+  margin-top: 50px;
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  padding-bottom: 12px;
+  flex-grow: 1; 
+  max-height: calc(100vh - 150px);
+}
+
+.main-section .item-grid::-webkit-scrollbar {
+  display: block;
+}
+
+.main-section .item-grid .item {
+  cursor: pointer;
+  background-color: var(--d-black);
+  color: var(--white);
+  border-radius: 12px;
+  padding: 20px;
+  height: 200px; 
+  width: 200px;
+  flex-shrink: 0; 
+  line-height: 1.7;
+  position: relative;
+}
+
+.main-section .item-grid .item span {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  background-color: var(--white);
+  color: var(--black);
+  padding: 0 5px;
+  font-size: .7em;
+  text-transform: capitalize;
+  font-weight: 500;
+  border-radius: 5px;
+}
+
+.controls {
+  margin-top: 20px;
+}
+.dropdown {
+  width: 100%;
+  padding: 10px;
+  font-size: 1em;
+  background-color: var(--d-black);
+  color: var(--white);
+  border: 1px solid rgba(255, 255, 255, .1);
+  border-radius: 5px;
+  cursor: pointer;
+}
+.tab-content {
+  display: none;
+}
+.tab-content.active {
+  display: block;
+}
+.tab-content textarea,
+.tab-content input{
+  font-family: roboto;
+  font-size: 1em;
+  line-height: 1.2em;
+  background-color: var(--d-black);
+  color: var(--white);
+  border: 1px solid rgba(255, 255, 255, .1);
+  border-radius: 12px;
+  width: calc(100% - 24px);
+  margin-top: 12px;
+  padding: 12px;
+  outline: none;
+}
+.tab-content button{
+  float: right;
+  padding: 8px 20px;
+  background-color: var(--white);
+  color: var(--black);
+  font-size: .8em;
+  border: none;
+  outline: none;
+  border-radius: 8px;
+}
+
+.content-display{
+  flex-grow: 1;
+  overflow: auto;
+}
+.content-display::-webkit-scrollbar{
+  display: none;
+}
+.content-display .left,
+.content-display .right{
+  margin: 10px 0;
+}
+.content-display .left .ai{
+  background-color: var(--white);
+  padding: 20px;
+  border-radius: 20px;
+  display: flex;
+  word-break: break-word;
+  line-height: 1.5;
+}
+.content-display .left .ai .ai-logo img{
+  height: 40px;
+  margin-right: 20px;
+}
+.content-display .left .ai .ai-context img,
+.content-display .right .user img{
+  width: 400px;
+  border-radius: 12px;
+  clip-path: inset(0px 0px 25px 0px);
+}
+.content-display .right{
+  display: flex;
+  align-items: center;
+}
+.content-display .right .user{
+  background-color: var(--d-black);
+  padding: 20px;
+  color: var(--white);
+  border-radius: 20px 20px 0 20px;
+  margin-left: auto;
+  margin-right: 0;
+  border: 1px solid rgba(255, 255, 255, .1);
+  word-break: break-word;
+}
+
+.content-display .left .ai .ai-context {
+  font-family: 'Roboto', sans-serif; /* Use the same font as in your header */
+  line-height: 1.5; /* Improve readability */
+  margin: 20px 0; /* Add margin to separate content */
+}
+
+/* Headings */
+.content-display .left .ai .ai-context h1,
+.content-display .left .ai .ai-context h2,
+.content-display .left .ai .ai-context h3 {
+  margin: 20px 0 10px; /* Add spacing above and below */
+  font-weight: 700; /* Make headings bold */
+}
+
+.content-display .left .ai .ai-context h1 {
+  font-size: 2em; /* Heading 1 size */
+}
+
+.content-display .left .ai .ai-context h2 {
+  font-size: 1.5em; /* Heading 2 size */
+}
+
+.content-display .left .ai .ai-context h3 {
+  font-size: 1.25em; /* Heading 3 size */
+}
+
+/* Paragraphs */
+.content-display .left .ai .ai-context p {
+  margin: 0 0 15px; /* Space below paragraphs */
+}
+
+/* Lists */
+.content-display .left .ai .ai-context ul,
+.content-display .left .ai .ai-context ol {
+  margin: 10px 0 15px; /* Space around lists */
+  padding-left: 20px; /* Indent lists */
+}
+
+/* List Items */
+.content-display .left .ai .ai-context li {
+  margin-bottom: 5px; /* Space between list items */
+}
+
+/* Blockquotes */
+.content-display .left .ai .ai-context blockquote {
+  border-left: 4px solid #ccc; /* Left border for blockquote */
+  padding-left: 10px; /* Space inside the blockquote */
+  color: #666; /* Lighter color for quotes */
+  margin: 10px 0; /* Margin around blockquotes */
+}
+
+/* Code Blocks */
+.content-display .left .ai .ai-context pre {
+  background-color: #f9f9f9; /* Light background for code */
+  border: 1px solid #ddd; /* Border around code */
+  padding: 10px; /* Padding inside code block */
+  overflow-x: auto; /* Allow horizontal scrolling */
+  margin: 10px 0; /* Margin around code blocks */
+  border-radius: 12px;
+}
+
+.content-display .left .ai .ai-context code {
+  background-color: #f9f9f9; /* Light background for inline code */
+  padding: 2px 4px; /* Padding inside inline code */
+  border-radius: 3px; /* Rounded corners for inline code */
+  border-radius: 12px;
+}
+
+/* Tables */
+.content-display .left .ai .ai-context table {
+  width: 100%; /* Full width tables */
+  border-collapse: collapse; /* Collapse borders */
+  margin: 10px 0; /* Margin around tables */
+}
+
+.content-display .left .ai .ai-context th,
+.content-display .left .ai .ai-context td {
+  border: 1px solid #ddd; /* Border for table cells */
+  padding: 8px; /* Padding inside cells */
+  text-align: left; /* Align text to the left */
+}
+
+.content-display .left .ai .ai-context th {
+  background-color: #f2f2f2; /* Light background for headers */
+}
+
+/* Images */
+.content-display .left .ai .ai-context img {
+  max-width: 100%; /* Responsive images */
+  height: auto; /* Maintain aspect ratio */
+  margin: 10px 0; /* Margin around images */
+}
+
+/* Horizontal Rule */
+.content-display .left .ai .ai-context hr {
+  border: none; /* Remove default border */
+  height: 1px; /* Set height */
+  background-color: #ccc; /* Color for the line */
+  margin: 20px 0; /* Margin above and below */
+}
+
+@media(max-width: 768px) {
+  .main-section {
+    width: calc(100% - 40px);
+  }
+
+  .main-section header h1 {
+    font-size: 2em;
+  }
+
+  .main-section .item-grid::-webkit-scrollbar {
+    display: none;
+  }
+}

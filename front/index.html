@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900&family=Sansita:ital,wght@0,400;0,700;0,800;0,900;1,400;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <title>Iris - The Bootleg Siri</title>
+    <script src="https://cdn.jsdelivr.net/npm/markdown-it/dist/markdown-it.min.js"></script>
+    <link rel="shortcut icon" href="assets/img/logo.png" type="image/x-icon">
+</head>
+<body>
+    <main>
+        <div class="main-section">
+            <header id="header">
+                <h1 id="greeting">Good morning!</h1>
+                <img src="assets/img/logo.png" alt="logo" />
+            </header>
+
+            <div class="item-grid" id="item-grid">
+                <!-- Random items will be injected here -->
+            </div>
+
+            <div class="content-display" id="content-display">
+                
+            </div>
+
+            <div class="controls">
+                <select class="dropdown" onchange="showContent(this.value)">
+                    <option value="" disabled selected>Select a generation type</option>
+                    <option value="text-gen">Text Generation</option>
+                    <option value="image-gen">Image Generation</option>
+                    <option value="image-analysis">Image Analysis</option>
+                </select>
+                <div class="tab-content" id="text-gen">
+                    <textarea
+                        name="text_generate"
+                        id="text_generate"
+                        rows="5"
+                        placeholder="What do you want to know?"
+                    ></textarea><br>
+                    <button id="text-gen-btn" onclick="generateText()">Generate Text</button>
+                </div>
+                <div class="tab-content" id="image-gen">
+                    <textarea
+                        name="image_generate"
+                        id="image_generate"
+                        rows="5"
+                        placeholder="What do you want to see?"
+                    ></textarea><br>
+                    <button id="image-gen-btn" onclick="generateImage()">Generate Image</button><br>
+                </div>
+                <div class="tab-content" id="image-analysis">
+                    <input 
+                        type="file"
+                        name="image"
+                        id="image"
+                        accept="image/*"
+                    >
+                    <textarea
+                        name="image_analyze"
+                        id="image_analyze"
+                        rows="5"
+                        placeholder="What do you want to know?"
+                    ></textarea><br>
+                    <button id="image-analysis-btn" onclick="analyzeImage()">Analyze Image</button>
+                </div>
+            </div>            
+        </div>
+    </main>
+
+    <script src="assets/js/main.js"></script> 
+    <script src="assets/js/content.js"></script> 
+    <script src="assets/js/greeting.js"></script> 
+    <script src="assets/js/item-grid.js"></script> 
+    <script src="assets/js/api.js"></script>
+</body>
+</html>
